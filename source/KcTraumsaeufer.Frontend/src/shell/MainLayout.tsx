@@ -5,6 +5,7 @@ import {useCallback} from "react";
 import {BrowserRouter, Route, Routes, useNavigate, useNavigation} from "react-router-dom";
 import {MainPage} from "../routes/mainPage/MainPage.tsx";
 import {Team} from "../routes/mainPage/Team.tsx";
+import {Penalties} from "../routes/mainPage/Penalties.tsx";
 
 export const MainLayout = () => {
     const navigate = useNavigate();
@@ -19,13 +20,14 @@ export const MainLayout = () => {
     },[]);
 
     return (
-        <div className={'container'}>
+        <div className={'container'} style={{backgroundColor: 'black', minHeight: '100vh'}}>
             <TopBar onToggleMenu={onToggleMenu}/>
             <MainMenu open={open} navigate={onNavigate}/>
 
             <Routes>
                 <Route path={'/'} element={<MainPage/>}/>
                 <Route path={'/team'} element={<Team/>}/>
+                <Route path={'/penalties'} element={<Penalties/>}/>
             </Routes>
         </div>
     );

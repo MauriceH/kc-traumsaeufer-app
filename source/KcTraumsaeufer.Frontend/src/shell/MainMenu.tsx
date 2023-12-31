@@ -15,6 +15,9 @@ export default function MainMenu({open, navigate}:MainMenuProps) {
     const onHome = useCallback(()=> {
         navigate('/');
     },[]);
+    const onPenalties = useCallback(()=> {
+        navigate('/penalties');
+    },[]);
 
     return (
         <Drawer
@@ -26,6 +29,13 @@ export default function MainMenu({open, navigate}:MainMenuProps) {
                <img src={Logo.default} className={'w-40 basis-2 m-5'} alt={"Logo"}/>
             </div>
             <List>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={onPenalties}>
+                        <ListItemIcon>
+                        </ListItemIcon>
+                        <ListItemText primary={'Strafen'}/>
+                    </ListItemButton>
+                </ListItem>
                 <ListItem disablePadding>
                     <ListItemButton onClick={onHome}>
                         <ListItemIcon>
