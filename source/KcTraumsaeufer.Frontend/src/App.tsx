@@ -1,14 +1,20 @@
-
+import * as React from 'react';
 import './App.css'
 import {MainLayout} from "./shell/MainLayout.tsx";
+import {createTheme, ThemeProvider} from "@mui/material";
 
-function App() {
+const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+});
 
-  return (
+const App = () => (
     <>
-        <MainLayout />
+        <ThemeProvider theme={darkTheme}>
+            <MainLayout/>
+        </ThemeProvider>
     </>
-  )
-}
+);
 
 export default App

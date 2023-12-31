@@ -1,18 +1,20 @@
-import ButtonAppBar from "./AppBar.tsx";
-import {makeStyles, Theme} from "@mui/material";
-
-const styles = makeStyles((theme:Theme)=>({
-    root: {
-        flexGrow: 1,
-    },
-}));
-
+import * as React from 'react';
+import TopBar from "./AppBar.tsx";
+import MainMenu from "./MainMenu.tsx";
+import {useCallback} from "react";
 
 export const MainLayout = () => {
-    const classes = styles();
+
+    const [open, setOpen] = React.useState(false);
+    const onToggleMenu = useCallback(() => {
+        setOpen((open) => !open);
+    }, [setOpen]);
+
     return (
-        <div className={classes.root}>
-            <ButtonAppBar />
+        <div className={'container'}>
+            <TopBar onToggleMenu={onToggleMenu}/>
+            <MainMenu open={open} />
+
         </div>
     );
 }
