@@ -2,6 +2,7 @@ import * as React from 'react';
 import './App.css'
 import {MainLayout} from "./shell/MainLayout.tsx";
 import {createTheme, ThemeProvider} from "@mui/material";
+import {BrowserRouter} from "react-router-dom";
 
 const darkTheme = createTheme({
     palette: {
@@ -12,7 +13,9 @@ const darkTheme = createTheme({
 const App = () => (
     <>
         <ThemeProvider theme={darkTheme}>
-            <MainLayout/>
+            <BrowserRouter>
+                <MainLayout/>
+            </BrowserRouter>
         </ThemeProvider>
     </>
 );
